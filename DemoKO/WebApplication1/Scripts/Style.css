@@ -1,0 +1,19 @@
+﻿body {
+    color: white;
+    background-color: #311919;
+    margin: auto;
+}
+
+#tableOptions{
+    width: 500px;
+    bottom:0;
+
+}
+
+#fieldPlayers{
+    float:right;
+    margin: 0 auto;
+    height: 500px;
+    width: 800px;
+    background-color: #003300;
+}
