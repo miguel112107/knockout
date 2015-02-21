@@ -4,36 +4,67 @@
     <link rel="stylesheet" type="text/css" href="Scripts/Style.css">
 </head>
 <body>
- 
-    <div id="fieldPlayers">
-            <div id="GoalKeep">
-                <!--   <p>First name: <strong data-bind="text: Keeper"></strong></p>-->
-                <data-bind="text: availablePosition[0].playerName">
-            </div>
-        
-        </div>
-    <table id="tableOptions">
-        <thead>
-            <tr>
-                <th>Field Position</th>
-                <th>Player Name</th>
-                <th>True Position</th>
-                <th></th>
-            </tr>
-        </thead>
-        <button data-bind="click: addSeat, enable: availablePosition().length < 11">Reserve another seat</button>
-        <!-- Todo: Generate table body -->
-        <tbody data-bind="foreach: availablePosition">
-            <tr>
-                <td> <data-bind ="value: name" /></td>
-                <td> <select data-bind="options: $root.availablePlayers, value: player, optionsText: 'playerName'"></select></td>
-                <td data-bind="text: Keeper"></td>
-                <td></td>
-            </tr>
-        </tbody>
-       
-    </table>
+    
+        <table id="roster">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th></th>
+                    <th>Player</th>
+                    <th>Rating</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <!-- Todo: Generate table body -->
+            <tbody data-bind="foreach: availablePosition">
+                <tr>
+                    <td data-bind="text: rosterPosition"></td>
+                    <td><select data-bind="options: $root.availablePlayers, value: playerOnField, optionsText: 'playerName'"></select></td>
+                    <td data-bind="text: formattedRating"></td>
+                </tr>
+            </tbody>
+        </table>
 
+        
+
+
+    <div id="fieldPlayers" background ="/Images/Field.png">
+        <h2 data-bind="visible: averageRating() > 0">
+            Team Rating: <span data-bind="text: averageRating().toFixed(0)"></span>
+        </h2>
+        <h4 id="GK"><span data-bind="text: keeper.playerOnField().playerName"></span></h4>
+
+        <table id="Def" width="470">
+            <tr>
+              
+                <td><h4 id="RB"><span data-bind="text: Rb.playerOnField().playerName"></span></h4></td>               
+                <td><h4 id="RCB"><span data-bind="text: Rcb.playerOnField().playerName"></span></h4></td>
+                <td><h4 id="LCB"><span data-bind="text: Lcb.playerOnField().playerName"></span></h4></td>
+                <td><h4 id="LB"><span data-bind="text: Lb.playerOnField().playerName"></span></h4></td>
+            </tr>
+        </table>
+
+        <table id="Mid" width="500">
+            <tr>
+                <td><h4 id="RM"><span data-bind="text: Rm.playerOnField().playerName"></span></h4></td>
+                <td><h4 id="CM"><span data-bind="text: Cm.playerOnField().playerName"></span></h4></td>
+                <td><h4 id="Lm"><span data-bind="text: Lm.playerOnField().playerName"></span></h4></td>
+            </tr>
+        </table>
+
+        <table id="Fwd" width="600">
+           <tr>
+                <td><h4 id="RW"><span data-bind="text: Rw.playerOnField().playerName"></span></h4></td>
+                <td><h4 id="ST"><span data-bind="text: St.playerOnField().playerName"></span></h4></td>
+                <td><h4 id="LW"><span data-bind="text: Lw.playerOnField().playerName"></span></h4></td>
+           </tr>
+        </table>
+
+</div>
+
+    
+
+   
 
     <script type="text/javascript" src="Scripts/knockout-3.2.0.js"></script>
     <script type="text/javascript" src="Scripts/VM_Field.js"></script>

@@ -3,17 +3,47 @@
     background-color: #311919;
     margin: auto;
 }
+p{
+    color:white;
+}
 
 #tableOptions{
-    width: 500px;
+    width: 500px
     bottom:0;
 
 }
 
+#roster{
+    float:left;
+    display: inline-block;
+}
+
 #fieldPlayers{
-    float:right;
-    margin: 0 auto;
+    color:black;
+    background-image: url("/Images/FieldEdited.png");
+    display:inline-block;
+    float: right;
     height: 500px;
-    width: 800px;
+    width: 600px;
     background-color: #003300;
+}
+
+#GK{
+    margin-left: 45% ;
+    color:White;
+}
+
+#Def{
+     margin-left: 10% ;
+}
+
+#Mid{
+
+    margin-top:10%;
+    margin-left: 15% ;
+}
+
+#Fwd{
+      margin-top:20%;
+    margin-left: 5% ;
 }
