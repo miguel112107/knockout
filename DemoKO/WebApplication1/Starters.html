@@ -23,16 +23,29 @@
                     <td><select data-bind="options: $root.availablePlayers, value: playerOnField, optionsText: 'playerName'"></select></td>
                     <td data-bind="text: formattedRating"></td>
                 </tr>
+                
             </tbody>
-        </table>
+            <tr>
+                <td>Def</td>
+                <td>Mid</td>
+                <td>FWD</td>
+                <td>Overall</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span data-bind="text: averageRating().toFixed(0)"></span></td>
+            </tr>
+            </table>
 
         
 
         <div id="fieldDisplay">
     <div id="fieldPlayers">
-        <h2 data-bind="visible: averageRating() > 0">
-            Team Rating: <span data-bind="text: averageRating().toFixed(0)"></span>
-        </h2>
+        <h3>
+            Starting Lineup
+        </h3>
         <h4 id="GK"><span data-bind="text: keeper.playerOnField().playerName"></span></h4>
 
         <table id="Def" width="470">

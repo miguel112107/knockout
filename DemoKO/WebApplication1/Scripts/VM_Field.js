@@ -1,4 +1,4 @@
-﻿// Class to represent a row in the seat reservations grid
+﻿// Class to represent each position in the field
 function rosterSpot(rosterPosition, defaultPlayer) {
     var self = this;
     self.rosterPosition = rosterPosition;
@@ -14,7 +14,7 @@ function rosterSpot(rosterPosition, defaultPlayer) {
 function ReservationsViewModel() {
     var self = this;
 
-    // Non-editable catalog data - would come from the server
+    // Non-editable catalog data - List of players available to play
     self.availablePlayers = [
         { playerName: "I. Casillas", rating: 88 },//0
         { playerName: "D. Carvajal", rating: 81 },//1
@@ -33,19 +33,19 @@ function ReservationsViewModel() {
         { playerName: "K. Benzema", rating: 88 }//14
     ];
 
-    // Editable data
+    
     self.availablePosition = ko.observableArray([
-        self.keeper = new rosterSpot("GK", self.availablePlayers[0]),
-        self.Rb = new rosterSpot("LB", self.availablePlayers[1]),
-        self.Rcb = new rosterSpot("CB", self.availablePlayers[2]),
-        self.Lcb = new rosterSpot("CB", self.availablePlayers[3]),
-        self.Lb = new rosterSpot("RB", self.availablePlayers[5]),
-        self.Rm = new rosterSpot("Rm", self.availablePlayers[8]),
-        self.Cm = new rosterSpot("CM", self.availablePlayers[7]),
-        self.Lm = new rosterSpot("LM", self.availablePlayers[13]),
-        self.Rw = new rosterSpot("RW", self.availablePlayers[12]),
-        self.St = new rosterSpot("ST", self.availablePlayers[14]),
-        self.Lw = new rosterSpot("LW", self.availablePlayers[10])
+        self.keeper = new rosterSpot("Def", self.availablePlayers[0]),
+        self.Rb = new rosterSpot("Def", self.availablePlayers[1]),
+        self.Rcb = new rosterSpot("Def", self.availablePlayers[2]),
+        self.Lcb = new rosterSpot("Def", self.availablePlayers[3]),
+        self.Lb = new rosterSpot("Def", self.availablePlayers[5]),
+        self.Rm = new rosterSpot("Mid", self.availablePlayers[8]),
+        self.Cm = new rosterSpot("Mid", self.availablePlayers[7]),
+        self.Lm = new rosterSpot("Mid", self.availablePlayers[13]),
+        self.Rw = new rosterSpot("Fwd", self.availablePlayers[12]),
+       self.St = new rosterSpot("Fwd", self.availablePlayers[14]),
+        self.Lw = new rosterSpot("Fwd", self.availablePlayers[10])
     ]);
 
     
