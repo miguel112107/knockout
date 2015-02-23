@@ -84,6 +84,7 @@
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Images\Field.png" />
     <Content Include="Images\FieldEdited.png" />
+    <Content Include="Images\Real2007.jpg" />
     <Content Include="Images\soccer-field.png" />
     <Content Include="LineUp.html" />
     <Content Include="Scripts\jquery-2.1.3.js" />
