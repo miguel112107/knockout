@@ -1,31 +1,50 @@
 ﻿body {
     color: white;
-    background-color: #311919;
+    background-color: black;
     margin: auto;
+}
+#mainBody{
+    width:70%;
+    height:80%;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:5%;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #B8B8B8;
 }
 p{
     color:white;
+    
 }
 
 #tableOptions{
     width: 500px
-    bottom:0;
+  
 
 }
 
 #roster{
     float:left;
     display: inline-block;
+    font-size: 20px;
 }
-
-#fieldPlayers{
+#fieldDisplay{
     color:black;
-    background-image: url("/Images/FieldEdited.png");
     display:inline-block;
     float: right;
-    height: 500px;
+    height: 450px;
     width: 600px;
     background-color: #003300;
+
+}
+#fieldPlayers{
+    height: 100%;
+    width:100%;
+    background-image: url("/Images/soccer-field.png");
+    
 }
 
 #GK{
