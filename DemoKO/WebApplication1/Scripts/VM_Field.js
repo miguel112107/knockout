@@ -14,7 +14,7 @@ function rosterSpot(rosterPosition, defaultPlayer) {
 function ReservationsViewModel() {
     var self = this;
 
-    // Non-editable catalog data - List of players available to play
+    // Non-editable roster data - List of players available to play
     self.availablePlayers = [
         { playerName: "I. Casillas", rating: 88 },//0
         { playerName: "D. Carvajal", rating: 81 },//1
@@ -44,7 +44,7 @@ function ReservationsViewModel() {
         self.Cm = new rosterSpot("Mid", self.availablePlayers[7]),
         self.Lm = new rosterSpot("Mid", self.availablePlayers[13]),
         self.Rw = new rosterSpot("Fwd", self.availablePlayers[12]),
-       self.St = new rosterSpot("Fwd", self.availablePlayers[14]),
+        self.St = new rosterSpot("Fwd", self.availablePlayers[14]),
         self.Lw = new rosterSpot("Fwd", self.availablePlayers[10])
     ]);
 
@@ -54,6 +54,50 @@ function ReservationsViewModel() {
     self.addtoRoster = function () {
         self.availablePosition.push(new spotReservation(self.availablePlayers[0]));
     }
+
+    //Defender average rating
+    self.defRating = ko.computed(function () {
+        var total = 0;
+        var defNumber = 0;
+        
+        for (var i = 0; i < self.availablePosition().length; i++) {
+            if (self.availablePosition()[i].rosterPosition == "Def") {
+                defNumber ++ ;
+                total += (self.availablePosition()[i].playerOnField().rating);
+            }
+        }
+        total = total / defNumber;
+        return total;
+        });
+
+    self.midRating = ko.computed(function () {
+        var total = 0;
+        var defNumber = 0;
+
+        for (var i = 0; i < self.availablePosition().length; i++) {
+            if (self.availablePosition()[i].rosterPosition == "Mid") {
+                defNumber++;
+                total += (self.availablePosition()[i].playerOnField().rating);
+            }
+        }
+        total = total / defNumber;
+        return total;
+    });
+
+    self.fwdRating = ko.computed(function () {
+        var total = 0;
+        var defNumber = 0;
+
+        for (var i = 0; i < self.availablePosition().length; i++) {
+            if (self.availablePosition()[i].rosterPosition == "Fwd") {
+                defNumber++;
+                total += (self.availablePosition()[i].playerOnField().rating);
+            }
+        }
+        total = total / defNumber;
+        return total;
+    });
+
 
     self.averageRating = ko.computed(function () {
         var total = 0;
