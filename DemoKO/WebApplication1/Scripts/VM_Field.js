@@ -10,27 +10,41 @@ function rosterSpot(rosterPosition, defaultPlayer) {
     });
 }
 
+//My fade Visible custom binding for displaying Player Bio Info
+ko.bindingHandlers.fadeVisible = {
+    init: function (element, valueAccessor) {
+        // Start visible/invisible according to initial value
+        var shouldDisplay = valueAccessor();
+        $(element).toggle(shouldDisplay);
+    },
+    update: function (element, valueAccessor) {
+        // On update, fade in/out
+        var shouldDisplay = valueAccessor();
+        shouldDisplay ? $(element).fadeIn() : $(element).fadeOut();
+    }
+};
+
 // Overall viewmodel for this screen, along with initial state
 function ReservationsViewModel() {
     var self = this;
 
     // Non-editable roster data - List of players available to play
     self.availablePlayers = [
-        { playerName: "I. Casillas", rating: 88 },//0
-        { playerName: "D. Carvajal", rating: 81 },//1
-        { playerName: "S. Ramos", rating: 90 },//2
-        { playerName: "Pepe", rating: 89 },//3
-        { playerName: "R. Varane", rating: 83 },//4
-        { playerName: "Marcelo", rating: 85 },//5
-        { playerName: "F. Coentrao", rating: 80 },//6
-        { playerName: "T. Kroos", rating: 86 },//7
-        { playerName: "L. Modric", rating: 87 },//8
-        { playerName: "L. Silva", rating: 82 },//9
-        { playerName: "C. Ronaldo", rating: 98 },//10
-        { playerName: "Jese", rating: 79 },//11
-        { playerName: "G. Bale", rating: 88 },//12
-        { playerName: "J. Rodriguez", rating: 86 },//13
-        { playerName: "K. Benzema", rating: 88 }//14
+        { playerName: "I. Casillas", rating: 88, Country: 'Spain' },//0
+        { playerName: "D. Carvajal", rating: 81, Country: 'Spain' },//1
+        { playerName: "S. Ramos", rating: 90, Country: 'Spain' },//2
+        { playerName: "Pepe", rating: 89, Country: 'Spain' },//3
+        { playerName: "R. Varane", rating: 83, Country: 'Spain' },//4
+        { playerName: "Marcelo", rating: 85, Country: 'Spain' },//5
+        { playerName: "F. Coentrao", rating: 80, Country: 'Spain' },//6
+        { playerName: "T. Kroos", rating: 86, Country: 'Spain' },//7
+        { playerName: "L. Modric", rating: 87, Country: 'Spain' },//8
+        { playerName: "L. Silva", rating: 82, Country: 'Spain' },//9
+        { playerName: "C. Ronaldo", rating: 98, Country: 'Spain' },//10
+        { playerName: "Jese", rating: 79, Country: 'Spain' },//11
+        { playerName: "G. Bale", rating: 88, Country: 'Spain' },//12
+        { playerName: "J. Rodriguez", rating: 86, Country: 'Spain' },//13
+        { playerName: "K. Benzema", rating: 88, Country: 'Spain' }//14
     ];
 
     
@@ -105,6 +119,26 @@ function ReservationsViewModel() {
             total += (self.availablePosition()[i].playerOnField().rating) / self.availablePosition().length;
         return total;
     });
+
+    //bio custom binding in progress
+    ko.bindingHandlers.playerBio = {
+        init: function (element, valueAccessor) {
+        },
+        update: function (element, valueAccessor) {
+            // Give the first x stars the "chosen" class, where x <= rating
+            var observable = valueAccessor();
+            $("span", element).each(function (index) {
+                $(this).hover(
+                    function () { $(this).prevAll().add(this).addClass("hoverChosen") },
+                    function () { $(this).prevAll().add(this).removeClass("hoverChosen") }
+                ).click(function () {
+                    var observable = valueAccessor();  // Get the associated observable
+                    observable(index + 1);               // Write the new rating to it
+                });
+            });
+        }
+    };
+
 }
 
 ko.applyBindings(new ReservationsViewModel());

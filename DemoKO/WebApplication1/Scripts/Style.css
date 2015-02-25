@@ -1,13 +1,14 @@
 ﻿body {
-    width:100%;
-    height:100%;
+    width:1400px;
     color: white;
     background-color: black;
     background-image: url("/Images/Real2007.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 #mainBody{
     width:80%;
-    height:80%;
+    height:700px;
     margin-left: auto;
     margin-right:auto;
     margin-top:5%;
@@ -15,38 +16,44 @@
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
-    background-color: #B8B8B8;
+    
+    
 }
 h4, h3{
     color:black;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size:18px;
-    
+    font-size:18px;   
 }
 td{
     color:black;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size:18px;
 }
-#tableOptions{
-    width: 500px
+
+#mainBody_left{
+    display: inline-block;
+    float:left;
+    height:70%;
+    width: 40%;
+    border: 1px, solid, black;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #1A4C80;
+    opacity: 0.8;
 
 }
-
 #roster{
     float:left;
-    display: inline-block;
     font-size: 20px;
-    border: 5px, solid, black;
-    height:200px;
 }
 #fieldDisplay{
     color:black;
     display:inline-block;
     float: right;
-    height: 100%;
-    width: 600px;
-    background-color: #003300;
+    height: 70%;
+    width: 55%;
 
 }
 #fieldPlayers{
@@ -54,7 +61,23 @@ td{
     height: 100%;
     width:100%;
     background-image: url("/Images/soccer-field.png");
-    
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    opacity: 0.8;
+}
+
+#Bio{
+    width:100%;
+    height: 200px;
+    background-color:#CFCFCF;
+    display: inline-block;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 10px;
 }
 
 #GK{
@@ -74,6 +97,6 @@ td{
 }
 
 #Fwd{
-      margin-top:20%;
+    margin-top:20%;
     margin-left: 5% ;
 }

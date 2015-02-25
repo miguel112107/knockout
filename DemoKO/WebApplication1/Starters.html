@@ -4,47 +4,51 @@
     <link rel="stylesheet" type="text/css" href="Scripts/Style.css">
 </head>
 <body>
-  
+  <!-- main Body -->
     <div id="mainBody">
-        <table id="roster">
-            <thead>
+        <!-- main Body Left -->
+        <div id="mainBody_left">
+            <table id="roster">
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        
+                        <th>Player</th>
+                        <th>Rating</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!-- Todo: Generate table body -->
+                <tbody data-bind="foreach: availablePosition">
+                    <tr>
+                        <td data-bind="text: rosterPosition"></td>
+                        <td><select data-bind="options: $root.availablePlayers, value: playerOnField, optionsText: 'playerName'"></select></td>
+                        <td data-bind="text: formattedRating"></td>
+                    </tr>
+
+                </tbody>
                 <tr>
-                    <th>Position</th>
-                    <th></th>
-                    <th>Player</th>
-                    <th>Rating</th>
-                    <th></th>
+                    <td>Def</td>
+                    <td>Mid</td>
+                    <td>FWD</td>
+                    <td>Overall</td>
                 </tr>
-            </thead>
-            <!-- Todo: Generate table body -->
-            <tbody data-bind="foreach: availablePosition">
                 <tr>
-                    <td data-bind="text: rosterPosition"></td>
-                    <td><select data-bind="options: $root.availablePlayers, value: playerOnField, optionsText: 'playerName'"></select></td>
-                    <td data-bind="text: formattedRating"></td>
+                    <td><span data-bind="text: defRating().toFixed(0)"></span></td>
+                    <td><span data-bind="text: midRating().toFixed(0)"></span></td>
+                    <td><span data-bind="text: fwdRating().toFixed(0)"></span></td>
+                    <td><span data-bind="text: averageRating().toFixed(0)"></span></td>
                 </tr>
-                
-            </tbody>
-            <tr>
-                <td>Def</td>
-                <td>Mid</td>
-                <td>FWD</td>
-                <td>Overall</td>
-            </tr>
-            <tr>
-                <td><span data-bind="text: defRating().toFixed(0)"></span></td>
-                <td><span data-bind="text: midRating().toFixed(0)"></span></td>
-                <td><span data-bind="text: fwdRating().toFixed(0)"></span></td>
-                <td><span data-bind="text: averageRating().toFixed(0)"></span></td>
-            </tr>
             </table>
+        </div>
+        <!-- main Body Left End-->
 
-        
-
+        <!-- Field Display-->
         <div id="fieldDisplay">
+            <!-- Field Players -->
     <div id="fieldPlayers">
         <h3>
-            Starting Lineup
+            Real Madrid
         </h3>
         <h4 id="GK"><span data-bind="text: keeper.playerOnField().playerName"></span></h4>
 
@@ -73,14 +77,22 @@
                 <td><h4 id="LW"><span data-bind="text: Lw.playerOnField().playerName"></span></h4></td>
            </tr>
         </table>
+      
         </div>
+            <!-- Field Players End -->
+</div>
+        <!--Field Display End-->
+        <div id="Bio">
+         
+            <h3 data-bind="fadeVisible: averageRating() > fwdRating()"><span data-bind="text: Lb.playerOnField().Country"></span></h3>
 </div>
 </div>
- 
+    <!-- main Body  end-->
 
    
 
     <script type="text/javascript" src="Scripts/knockout-3.2.0.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-2.1.3.js"></script>
     <script type="text/javascript" src="Scripts/VM_Field.js"></script>
 </body>
 </html>
