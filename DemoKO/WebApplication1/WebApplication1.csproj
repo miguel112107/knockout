@@ -91,6 +91,7 @@
     <Content Include="Scripts\knockout-3.2.0.debug.js" />
     <Content Include="Scripts\knockout-3.2.0.js" />
     <Content Include="Scripts\Style.css" />
+    <Content Include="Scripts\testScript.js" />
     <Content Include="Scripts\VM_Field.js" />
     <Content Include="Starters.html" />
     <Content Include="test.html" />
