@@ -1,0 +1,6 @@
+C:\Users\Miguel\Documents\GitHub\knockout\KO_Demo\KO_Demo\bin\KO_Demo.dll.config
+C:\Users\Miguel\Documents\GitHub\knockout\KO_Demo\KO_Demo\bin\KO_Demo.dll
+C:\Users\Miguel\Documents\GitHub\knockout\KO_Demo\KO_Demo\bin\KO_Demo.pdb
+C:\Users\Miguel\Documents\GitHub\knockout\KO_Demo\KO_Demo\obj\Debug\KO_Demo.csprojResolveAssemblyReference.cache
+C:\Users\Miguel\Documents\GitHub\knockout\KO_Demo\KO_Demo\obj\Debug\KO_Demo.dll
+C:\Users\Miguel\Documents\GitHub\knockout\KO_Demo\KO_Demo\obj\Debug\KO_Demo.pdb
