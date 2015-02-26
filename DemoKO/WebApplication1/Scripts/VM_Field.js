@@ -125,7 +125,7 @@ function ReservationsViewModel() {
         init: function (element, valueAccessor) {
         },
         update: function (element, valueAccessor) {
-            // Give the first x stars the "chosen" class, where x <= rating
+           
             var observable = valueAccessor();
             $("span", element).each(function (index) {
                 $(this).hover(
